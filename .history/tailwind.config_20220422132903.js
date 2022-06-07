@@ -1,0 +1,14 @@
+module.exports = {
+  content: [],
+  theme: {
+    extend: {
+      colors: {
+        primary: "#7141D9",
+        dark: "#363853",
+        green: "#67d4ca",
+        red: "#f28080",
+      },
+    },
+  },
+  plugins: [],
+};
