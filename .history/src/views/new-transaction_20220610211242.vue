@@ -123,7 +123,7 @@
                 >
                   <input
                     id="location"
-                    class="text-dark w-full outline-none text-center"
+                    class="text-dark w-full outline-nonet text-center"
                     type="text"
                     placeholder="Tọa độ"
                     v-model="location"
@@ -170,7 +170,7 @@
                 for="file"
                 class="flex flex-col items-center text-primary font-bold"
               >
-                <div v-if="!thumbnail" class="flex items-center">
+                <div class="flex items-center">
                   <div class="flex-none w-10 mr-4">
                     <span class="flex items-center justify-end">
                       <i class="t2ico t2ico-camera text-2xl"></i>
@@ -193,8 +193,7 @@
                     <img :src="thumbnail" alt="" srcset="" />
                   </div>
                   <button
-                    v-if="thumbnail"
-                    class="absolute top-1 right-1 bg-primary p-2 rounded-full text-white font-bold z-10"
+                    class="absolute top-0 right-0 bg-primary p-1 rounded-full text-white font-bold"
                     @click="delImg"
                   >
                     Xóa
@@ -213,7 +212,7 @@
     <div class="flex w-full justify-center mt-3">
       <button
         type="submit"
-        class="bg-primary mb-20 text-white font-bold px-4 py-2 rounded"
+        class="bg-primary text-white font-bold px-4 py-2 rounded"
       >
         Thêm
       </button>

@@ -123,7 +123,7 @@
                 >
                   <input
                     id="location"
-                    class="text-dark w-full outline-none text-center"
+                    class="text-dark w-full outline-nonet text-center"
                     type="text"
                     placeholder="Tọa độ"
                     v-model="location"
@@ -167,10 +167,11 @@
           <div class="container mx-auto px-8">
             <div class="row">
               <label
+                v-if="!thumbnail"
                 for="file"
                 class="flex flex-col items-center text-primary font-bold"
               >
-                <div v-if="!thumbnail" class="flex items-center">
+                <div class="flex items-center">
                   <div class="flex-none w-10 mr-4">
                     <span class="flex items-center justify-end">
                       <i class="t2ico t2ico-camera text-2xl"></i>
@@ -213,7 +214,7 @@
     <div class="flex w-full justify-center mt-3">
       <button
         type="submit"
-        class="bg-primary mb-20 text-white font-bold px-4 py-2 rounded"
+        class="bg-primary text-white font-bold px-4 py-2 rounded"
       >
         Thêm
       </button>

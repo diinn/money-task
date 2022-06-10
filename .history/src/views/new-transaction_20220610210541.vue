@@ -123,7 +123,7 @@
                 >
                   <input
                     id="location"
-                    class="text-dark w-full outline-none text-center"
+                    class="text-dark w-full outline-nonet text-center"
                     type="text"
                     placeholder="Tọa độ"
                     v-model="location"
@@ -168,38 +168,28 @@
             <div class="row">
               <label
                 for="file"
-                class="flex flex-col items-center text-primary font-bold"
+                class="flex items-center text-primary font-bold"
               >
-                <div v-if="!thumbnail" class="flex items-center">
-                  <div class="flex-none w-10 mr-4">
-                    <span class="flex items-center justify-end">
-                      <i class="t2ico t2ico-camera text-2xl"></i>
-                    </span>
-                  </div>
-                  <div class="flex-1 py-2">
-                    <div class="w-full font-semibold" @click="OnPickImg">
-                      Thêm ảnh
-                    </div>
-                    <input
-                      id="file"
-                      type="file"
-                      class="hidden"
-                      @change="onChangeFile"
-                    />
-                  </div>
+                <div class="flex-none w-10 mr-4">
+                  <span class="flex items-center justify-end">
+                    <i class="t2ico t2ico-camera text-2xl"></i>
+                  </span>
                 </div>
-                <div class="relative flex items-center">
-                  <div>
-                    <img :src="thumbnail" alt="" srcset="" />
+                <div class="flex-1 py-2">
+                  <div class="w-full font-semibold" @click="OnPickImg">
+                    Thêm ảnh
                   </div>
-                  <button
-                    v-if="thumbnail"
-                    class="absolute top-1 right-1 bg-primary p-2 rounded-full text-white font-bold z-10"
-                    @click="delImg"
-                  >
-                    Xóa
-                  </button>
+                  <input
+                    id="file"
+                    type="file"
+                    class="hidden"
+                    @change="onChangeFile"
+                  />
                 </div>
+                <div>
+                  <img :src="thumbnail" alt="" srcset="" />
+                </div>
+                <button @click="delImg">Xóa</button>
               </label>
             </div>
           </div>
@@ -213,7 +203,7 @@
     <div class="flex w-full justify-center mt-3">
       <button
         type="submit"
-        class="bg-primary mb-20 text-white font-bold px-4 py-2 rounded"
+        class="bg-primary text-white font-bold px-4 py-2 rounded"
       >
         Thêm
       </button>

@@ -123,7 +123,7 @@
                 >
                   <input
                     id="location"
-                    class="text-dark w-full outline-none text-center"
+                    class="text-dark w-full outline-nonet text-center"
                     type="text"
                     placeholder="Tọa độ"
                     v-model="location"

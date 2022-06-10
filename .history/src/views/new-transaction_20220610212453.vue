@@ -123,7 +123,7 @@
                 >
                   <input
                     id="location"
-                    class="text-dark w-full outline-none text-center"
+                    class="text-dark w-full outline-nonet text-center"
                     type="text"
                     placeholder="Tọa độ"
                     v-model="location"
@@ -213,7 +213,7 @@
     <div class="flex w-full justify-center mt-3">
       <button
         type="submit"
-        class="bg-primary mb-20 text-white font-bold px-4 py-2 rounded"
+        class="bg-primary mt-20 text-white font-bold px-4 py-2 rounded"
       >
         Thêm
       </button>
