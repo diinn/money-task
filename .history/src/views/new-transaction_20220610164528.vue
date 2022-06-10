@@ -261,7 +261,7 @@ export default {
       try {
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            location.value = `${position.coords.latitude} + ${position.coords.longitude}`;
+            location.value = `${position.coords.latitude} </br> ${position.coords.longitude}`;
             // var { data } = await axios.get(
             //   "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
             //     position.coords.latitude +

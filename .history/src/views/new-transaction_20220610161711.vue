@@ -118,7 +118,7 @@
                     <i class="t2ico t2ico-location text-2xl"></i>
                   </span>
                 </div>
-                <div class="flex flex-1 border-b border-gray-100">
+                <div class="flex-1 border-b border-gray-100">
                   <input
                     id="location"
                     class="text-dark w-full outline-none"
@@ -126,12 +126,7 @@
                     placeholder="Tại"
                     v-model="location"
                   />
-                  <button
-                    class="w-28 rounded-lg p-1 bg-primary text-white"
-                    @click="getLocation"
-                  >
-                    Lấy vị trí
-                  </button>
+                  <button @click="getLocation">Get local location</button>
                 </div>
               </label>
             </div>
@@ -184,10 +179,6 @@
                     @change="onChangeFile"
                   />
                 </div>
-                <div>
-                  <img :src="thumbnail" alt="" srcset="" />
-                </div>
-                <button @click="delImg">xoas</button>
               </label>
             </div>
           </div>
@@ -241,20 +232,28 @@ export default {
 
       if (selected && typesOfFile.includes(selected.type)) {
         file.value = selected;
-        const fileReader = new FileReader();
-        fileReader.addEventListener("load", () => {
-          thumbnail.value = fileReader.result;
-        });
-        fileReader.readAsDataURL(selected);
       } else {
         file.value = null;
         errorFile.value = "Vui lòng chọn ảnh có định dạng PNG, JPG hoặc JPEG!";
       }
     }
 
+    function onPickedImg(e) {
+      const files = e.target.files;
+      for (let i = 0; i < files.length; i++) {
+        const filename = files[i].name;
+        if (filename.lastIndexOf(".") <= 0) {
+          return alert("Tệp không hợp lệ");
+        }
+        const fileReader = new FileReader();
+        fileReader.addEventListener("load", () => {
+          thumbnail.value = fileReader.result;
+        });
+        fileReader.readAsDataURL(files[i]);
+      }
+    }
     function delImg() {
       thumbnail.value = "";
-      file.value = null;
     }
 
     function getLocation() {
@@ -318,6 +317,7 @@ export default {
       onChangeFile,
       onSubmit,
       getLocation,
+      onPickedImg,
       delImg,
       thumbnail,
     };

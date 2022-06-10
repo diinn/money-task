@@ -118,7 +118,7 @@
                     <i class="t2ico t2ico-location text-2xl"></i>
                   </span>
                 </div>
-                <div class="flex flex-1 border-b border-gray-100">
+                <div class="flex-1 border-b border-gray-100">
                   <input
                     id="location"
                     class="text-dark w-full outline-none"
@@ -126,12 +126,7 @@
                     placeholder="Tại"
                     v-model="location"
                   />
-                  <button
-                    class="w-28 rounded-lg p-1 bg-primary text-white"
-                    @click="getLocation"
-                  >
-                    Lấy vị trí
-                  </button>
+                  <button @click="getLocation">Get local location</button>
                 </div>
               </label>
             </div>
@@ -174,9 +169,7 @@
                   </span>
                 </div>
                 <div class="flex-1 py-2">
-                  <div class="w-full font-semibold" @click="OnPickImg">
-                    Thêm ảnh
-                  </div>
+                  <div class="w-full font-semibold">Thêm ảnh</div>
                   <input
                     id="file"
                     type="file"
@@ -184,10 +177,6 @@
                     @change="onChangeFile"
                   />
                 </div>
-                <div>
-                  <img :src="thumbnail" alt="" srcset="" />
-                </div>
-                <button @click="delImg">xoas</button>
               </label>
             </div>
           </div>
@@ -230,7 +219,6 @@ export default {
     const time = ref(new Date());
     const location = ref("");
     const withPerson = ref("");
-    const thumbnail = ref("");
     const file = ref(null);
     const errorFile = ref(null);
 
@@ -241,20 +229,10 @@ export default {
 
       if (selected && typesOfFile.includes(selected.type)) {
         file.value = selected;
-        const fileReader = new FileReader();
-        fileReader.addEventListener("load", () => {
-          thumbnail.value = fileReader.result;
-        });
-        fileReader.readAsDataURL(selected);
       } else {
         file.value = null;
         errorFile.value = "Vui lòng chọn ảnh có định dạng PNG, JPG hoặc JPEG!";
       }
-    }
-
-    function delImg() {
-      thumbnail.value = "";
-      file.value = null;
     }
 
     function getLocation() {
@@ -262,18 +240,20 @@ export default {
         navigator.geolocation.getCurrentPosition(
           (position) => {
             location.value = `${position.coords.latitude} + ${position.coords.longitude}`;
-            // var { data } = await axios.get(
-            //   "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
-            //     position.coords.latitude +
-            //     "," +
-            //     position.coords.longitude +
-            //     "&key={yourAPIKey}"
-            // );
-            // if (data.error_message) {
-            //   console.log(data.error_message);
-            // } else {
-            //   location.value = data.results[0].formatted_address;
-            // }
+            var {
+         data
+      } = await axios.get(
+         "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
+         lat +
+         "," +
+         long +
+         "&key={yourAPIKey}"
+      );
+      if (data.error_message) {
+         console.log(data.error_message)
+      } else {
+         this.address = data.results[0].formatted_address;
+      }
           },
           (error) => {
             console.log(error.message);
@@ -318,8 +298,6 @@ export default {
       onChangeFile,
       onSubmit,
       getLocation,
-      delImg,
-      thumbnail,
     };
   },
 };

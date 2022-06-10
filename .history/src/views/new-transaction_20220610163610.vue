@@ -126,10 +126,7 @@
                     placeholder="Tại"
                     v-model="location"
                   />
-                  <button
-                    class="w-28 rounded-lg p-1 bg-primary text-white"
-                    @click="getLocation"
-                  >
+                  <button class="backgound-primary" @click="getLocation">
                     Lấy vị trí
                   </button>
                 </div>

@@ -127,7 +127,7 @@
                     v-model="location"
                   />
                   <button
-                    class="w-28 rounded-lg p-1 bg-primary text-white"
+                    class="w-24 p-1 bg-primary text-white"
                     @click="getLocation"
                   >
                     Lấy vị trí

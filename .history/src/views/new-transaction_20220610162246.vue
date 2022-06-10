@@ -118,7 +118,7 @@
                     <i class="t2ico t2ico-location text-2xl"></i>
                   </span>
                 </div>
-                <div class="flex flex-1 border-b border-gray-100">
+                <div class="flex-1 border-b border-gray-100">
                   <input
                     id="location"
                     class="text-dark w-full outline-none"
@@ -126,12 +126,7 @@
                     placeholder="Tại"
                     v-model="location"
                   />
-                  <button
-                    class="w-28 rounded-lg p-1 bg-primary text-white"
-                    @click="getLocation"
-                  >
-                    Lấy vị trí
-                  </button>
+                  <button @click="getLocation">Get local location</button>
                 </div>
               </label>
             </div>
@@ -187,7 +182,6 @@
                 <div>
                   <img :src="thumbnail" alt="" srcset="" />
                 </div>
-                <button @click="delImg">xoas</button>
               </label>
             </div>
           </div>
