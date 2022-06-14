@@ -193,7 +193,6 @@
                     <img :src="thumbnail" alt="" srcset="" />
                   </div>
                   <button
-                    v-if="thumbnail"
                     class="absolute top-1 right-1 bg-primary p-2 rounded-full text-white font-bold z-10"
                     @click="delImg"
                   >

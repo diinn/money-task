@@ -301,7 +301,7 @@ export default {
     async function onSubmit() {
       if (file.value) await uploadFile(file.value);
 
-      const { user } = await getUser();
+      const { user } = getUser();
 
       const transaction = {
         total: parseInt(total.value),

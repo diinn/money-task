@@ -170,7 +170,7 @@
                 for="file"
                 class="flex flex-col items-center text-primary font-bold"
               >
-                <div v-if="!thumbnail" class="flex items-center">
+                <div class="flex items-center">
                   <div class="flex-none w-10 mr-4">
                     <span class="flex items-center justify-end">
                       <i class="t2ico t2ico-camera text-2xl"></i>

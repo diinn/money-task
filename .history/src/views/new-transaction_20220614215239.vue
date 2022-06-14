@@ -95,7 +95,7 @@
     </div>
     <!-- end: main from -->
 
-    <div v-if="!isMoreDetails" class="row mt-8">
+    <div class="row mt-8">
       <button
         @click="isMoreDetails = true"
         class="bg-white rounded-lg py-3 w-full text-primary font-semibold"
